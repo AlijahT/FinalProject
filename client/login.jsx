@@ -55,7 +55,7 @@ const LoginWindow = (props) => {
             <input id='user' type='text' name='username' placeholder='username' />
             <label htmlFor='pass'>Password: </label>
             <input id='pass' type='password' name='pass' placeholder='password' />
-            <input className='formSubmit' type='submit' value='Sign in'/>
+            <input className='formSubmit' type='submit' value='Sign in' />
         </form>
     );
 };
@@ -69,13 +69,22 @@ const SignupWindow = (props) => {
             method='POST'
             className='mainForm'
         >
-            <label htmlFor='username'>Username: </label>
-            <input id='user' type='text' name='username' placeholder='username' />
-            <label htmlFor='pass'>Password: </label>
-            <input id='pass' type='password' name='pass' placeholder='password' />
-            <label htmlFor='pass'>Retype Password: </label>
-            <input id='pass2' type='password' name='pass2' placeholder='retype password' />
-            <input className='formSubmit' type='submit' value='Sign Up'/>
+            <div class="columns">
+                <div class="column is-half is-offset-one-quarter is-mobile is-1">
+                    <div id="Login Box" class="box has-background-dark has-text-light">
+                        <label htmlFor='username'>Username: </label>
+                        <input id='user' type='text' name='username' class="input" placeholder='username' />
+                        <label htmlFor='pass'>Password: </label>
+                        <input id='pass' type='password' name='pass' class="input" placeholder='password' />
+                        <label htmlFor='pass'>Retype Password: </label>
+                        <input id='pass2' type='password' name='pass2' class="input" placeholder='retype password' />
+                        <input className='formSubmit' class="button" type='submit' value='Sign Up' />
+                    </div>
+                </div>
+            </div>
+
+
+
         </form>
     );
 };
@@ -84,13 +93,13 @@ const init = () => {
     const loginButton = document.getElementById('loginButton');
     const signupButton = document.getElementById('signupButton');
 
-    loginButton.addEventListener('click',(e)=>{
+    loginButton.addEventListener('click', (e) => {
         e.preventDefault();
         ReactDOM.render(<LoginWindow />, document.getElementById('content'));
         return false;
     });
 
-    signupButton.addEventListener('click',(e)=>{
+    signupButton.addEventListener('click', (e) => {
         e.preventDefault();
         ReactDOM.render(<SignupWindow />, document.getElementById('content'));
         return false;

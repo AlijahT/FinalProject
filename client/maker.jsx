@@ -93,7 +93,7 @@ const BuildList = (props) => {
     });
 
     return (
-        <div className="buildList" class="columns is multiline is mobile is-1">
+        <div className="buildList" class="columns is-multiline is-mobile is-1">
             {buildNodes}
         </div>
     );
