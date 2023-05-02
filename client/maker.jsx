@@ -98,6 +98,112 @@ const BuildList = (props) => {
     );
 };
 
+class ModalControl extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleButtonClick = this.handleButtonClick.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+        this.state = {showModal: false, current: '', pass1: '', pass2: ''};
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    
+    }
+
+    handleButtonClick() {
+        this.setState({showModal: true});
+    }
+
+    closeModal() {
+        this.setState({showModal: false});
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+    
+    handleSubmit(event) {
+        alert('Changed: ' + this.state);
+        event.preventDefault();
+      }
+    
+
+    render(){
+        const showModal = this.state.showModal;
+
+        return (
+          <div>
+            <ModalButton onClick={this.handleButtonClick} message='Change Password' />
+            {createPortal(<Modal 
+             showModal={showModal}
+             onClose={this.closeModal}
+             onSubmit={this.handleSubmit}
+             current={this.state.current} 
+             pass1={this.state.pass1} 
+             pass2={this.state.pass2} 
+             onChange={this.handleChange} 
+             />,  document.getElementById('modal-root'))}
+          </div>
+        )
+
+    }
+}
+
+const Modal = (props) => {
+    const showModal = props.showModal;
+    if (showModal) {
+        return (
+            <div className="modal">
+                <div className='modal-content'>
+                    <div className='modal-header'>
+                        <h4 className='modal-title'>Change Password</h4>
+                    </div>
+                    <div className='modal-body'>
+                    <form onSubmit={props.onSubmit}>
+                        <label>
+                            Current Password:
+                        <input type="password" value={props.current} onChange={props.onChange} name="current" />
+                        </label>
+                        <br></br>
+                        <label>
+                            New Password:
+                        <input type="password" value={props.pass1} onChange={props.onChange} name="pass1" />
+                        </label>
+                        <br></br>
+                        <label>
+                            Confirm New Password:
+                        <input type="password" value={props.pass2} onChange={props.onChange} name="pass2" />
+                        </label>
+                        <br></br>
+                        <input type="submit" value="Submit" />
+                        </form>
+                    </div>
+                    <div className='modal-footer'> 
+                    <button onClick={props.onClose}>  
+                        Close
+                    </button>   
+                    </div>
+                </div>
+            </div>
+        )
+    }
+    return null
+}
+
+const ModalButton = (props) => {
+    return (
+        <button onClick={props.onClick}>  
+            {props.message}
+        </button>        
+    )
+}
+
+const renderModal = async() => {
+    const root = ReactDOM.createRoot(document.getElementById('changePassword')); 
+    root.render(<ModalControl />);
+
+}
+
 const loadBuildsFromServer = async () => {
     const response = await fetch('/getBuilds');
     const data = await response.json();
@@ -108,6 +214,8 @@ const init = () => {
     ReactDOM.render(<BuildForm />, document.getElementById('makeBuild'));
     ReactDOM.render(<BuildList builds={[]} />, document.getElementById('builds'))
     loadBuildsFromServer();
+    renderModal();
+
 }
 
 window.onload = init;
