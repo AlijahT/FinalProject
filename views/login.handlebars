@@ -1,21 +1,31 @@
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
+  <meta charset="utf-8" />
   <title>Blaster Builder</title>
-  <link rel="shortcut icon" href="/assets/img/favicon.png"/>
-  <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+  <link rel="shortcut icon" href="/assets/img/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="/assets/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
-<body> 
-  <nav><a href="/login"><img id="logo" src="/assets/img/logo.png" alt="logo"/></a>
-    <div class="navlink"><a id="loginButton" href="/login">Login</a></div>
-    <div class="navlink"><a id="signupButton" href="/signup">Sign up</a></div>
-  </nav>
-  
+
+<body>
+
+  <a href="/login"><img id="biglogo" src="/assets/img/logo.png" alt="logo" /></a>
+
+  <div class="columns is-1">
+    <div class="column is-half is-offset-one-quarter">
+      <div class="box">
+        <button class="button" id="loginButton" href="/login">Login</button>
+        <button class="button" id="signupButton" href="/signup">Sign Up</button>
+      </div>
+    </div>
+  </div>
+
   <section id="content">
 
   </section>
 
   <script src="/assets/loginBundle.js"></script>
 </body>
+
 </html>

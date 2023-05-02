@@ -3,10 +3,8 @@
    end in an error.
 */
 const handleError = (message) => {
-    //document.getElementById('errorMessage').textContent = message;
-
+    alert(message);
     console.log(message);
-    //document.getElementById('domoMessage');
 };
 
 /* Sends post requests to the server using fetch. Will look for various
@@ -22,7 +20,6 @@ const sendPost = async (url, data, handler) => {
     });
 
     const result = await response.json();
-    //document.getElementById('domoMessage');
 
     if (result.redirect) {
         window.location = result.redirect;
@@ -38,7 +35,7 @@ const sendPost = async (url, data, handler) => {
 };
 
 const hideError = () => {
-    //document.getElementById('domoMessage');
+    
 };
 
 module.exports = {
