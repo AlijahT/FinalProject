@@ -60,6 +60,7 @@ const LoginWindow = (props) => {
                         <label htmlFor='pass'>Password: </label>
                         <input id='pass' type='password' name='pass' class="input" placeholder='password' />
                         <br />
+                        <br />
                         <input className='formSubmit' class = "button" type='submit' value='Sign in' />
 
                     </div>
