@@ -1,7 +1,7 @@
 {
-  "name": "domomaker",
+  "name": "blasterbuilder",
   "version": "1.0.0",
-  "description": "A Simple Login Example using Node.js, Mongo and Redis",
+  "description": "Final Project for Everyone's Favorite Class",
   "main": "./server/app.js",
   "scripts": {
     "webpack": "webpack",
@@ -18,7 +18,7 @@
     "Redis",
     "Login"
   ],
-  "author": "Cody Van De Mark / Austin Willoughby",
+  "author": "Cody Van De Mark / Austin Willoughby / Alijah Trombley",
   "license": "UNLICENSED",
   "devDependencies": {
     "@babel/core": "^7.21.4",
@@ -51,10 +51,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlijahT/DomoMaker-A-Start.git"
+    "url": "git+https://github.com/AlijahT/FinalProject"
   },
   "bugs": {
-    "url": "https://github.com/AlijahT/DomoMaker-A-Start/issues"
+    "url": "https://github.com/AlijahT/FinalProject/issues"
   },
-  "homepage": "https://github.com/AlijahT/DomoMaker-A-Start#readme"
+  "homepage": "https://github.com/AlijahT/FinalProject#readme"
 }

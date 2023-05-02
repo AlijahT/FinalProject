@@ -1,12 +1,14 @@
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
+  <meta charset="utf-8" />
   <title>Blaster Builder</title>
-  <link rel="shortcut icon" href="/assets/img/favicon.png"/>
-  <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+  <link rel="shortcut icon" href="/assets/img/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="/assets/style.css" />
 </head>
+
 <body>
-  <nav><a href="/login"><img id="logo" src="/assets/img/face.png" alt="face logo"/></a>
+  <nav><a href="/login"><img id="logo" src="/assets/img/logo.png" alt="logo" /></a>
     <div class="navlink"><a href="/logout">Log out</a></div>
     <div class="navlink" align="right"><a href="#" id="changePasswordLink">Change Password</a></div>
   </nav>
@@ -15,16 +17,10 @@
 
   </section>
   <section id="builds">
-    
+
   </section>
 
-  <div id="domoMessage" class='hidden'>
-    <img id="speech" src="/assets/img/speech.png" alt="speech box"/>
-    <h3><span id="errorMessage"></span></h3>
-    <img id="domo" src="assets/img/domo.png" alt="domo"/>
-  </div>
-
-    <div id="changePasswordModal" class="modal hidden">
+  <div id="changePasswordModal" class="modal hidden">
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>Change Password</h2>
@@ -34,7 +30,7 @@
         <label for="pass2">Confirm New Password:</label>
         <input type="password" id="current" name="current">
         <input type="password" id="pass1" name="pass1">
-        <input type="password" id="pass2" name="pass2">        
+        <input type="password" id="pass2" name="pass2">
         <br>
         <input type="submit" value="Submit">
       </form>
@@ -44,4 +40,5 @@
   <script src="/assets/appBundle.js"></script>
 
 </body>
+
 </html>
