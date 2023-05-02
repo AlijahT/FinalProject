@@ -4,7 +4,7 @@
 */
 const handleError = (message) => {
     document.getElementById('errorMessage').textContent = message;
-    document.getElementById('domoMessage').classList.remove('hidden');
+    document.getElementById('domoMessage');
 };
 
 /* Sends post requests to the server using fetch. Will look for various
@@ -20,7 +20,7 @@ const sendPost = async (url, data, handler) => {
     });
 
     const result = await response.json();
-    document.getElementById('domoMessage').classList.add('hidden');
+    document.getElementById('domoMessage');
 
     if (result.redirect) {
         window.location = result.redirect;
