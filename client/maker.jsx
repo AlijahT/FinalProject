@@ -17,7 +17,7 @@ const handleBuild = (e) => {
         return false;
     }
 
-    helper.sendPost(e.target.action, { buildName, cost, barrel, spring, additional}, loadBuildsFromServer);
+    helper.sendPost(e.target.action, { buildName, cost, barrel, spring, additional }, loadBuildsFromServer);
 
     return false;
 }
@@ -67,7 +67,7 @@ const BuildForm = (props) => {
 };
 
 const BuildList = (props) => {
-    if (props.builds.length === 0) {
+    if (props.builds.length() === 0) {
         return (
             <div className="buildList">
                 <h3 className="emptyBuilds">No Builds Created yet</h3>
@@ -98,7 +98,7 @@ const BuildList = (props) => {
 const loadBuildsFromServer = async () => {
     const response = await fetch('/getBuilds');
     const data = await response.json();
-    ReactDOM.render(<BuildList builds={data.builds} />, document.getElementById('builds'));
+    ReactDOM.render(<BuildList builds = {data.builds} />, document.getElementById('builds'));
 };
 
 const init = () => {
