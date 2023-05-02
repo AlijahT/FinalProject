@@ -12,7 +12,7 @@ const handleBuild = (e) => {
     const spring = e.target.querySelector('#spring').value;
     const additional = e.target.querySelector('#additional').value;
 
-    if (!buildName || !cost || !barrel || !spring || !additional) {
+    if (!buildName || !cost) {
         helper.handleError('All fields are required!');
         return false;
     }
