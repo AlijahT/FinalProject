@@ -3,7 +3,9 @@
    end in an error.
 */
 const handleError = (message) => {
-    document.getElementById('errorMessage').textContent = message;
+    //document.getElementById('errorMessage').textContent = message;
+
+    console.log(message);
     //document.getElementById('domoMessage');
 };
 
