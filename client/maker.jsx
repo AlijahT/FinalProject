@@ -57,7 +57,7 @@ const BuildForm = (props) => {
 
             <label htmlFor="spring">Spring: </label>
             <select name="spring" id="spring">
-                <option value="">{data.blasters.blastername[0]}</option>
+                <option value="1">{data.blasters[0].blastername}</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
