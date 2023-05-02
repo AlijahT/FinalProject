@@ -40,11 +40,12 @@ const makeBuild = async (req, res) => {
 
 const getBuilds = async (req, res) => {
   try {
-    const query = { owner: req.session.account._id };
-    const docs = await Build.find(query).select('buildName cost barrel spring additional')
+    const query = { nerfer: req.session.account._id };
+    const docs = await Build.find(query).select('buildName cost spring barrel additional')
     .lean().exec();
     return res.json({ builds: docs });
-  } catch (err) {
+  } 
+  catch (err) {
     console.log(err);
     return res.status(500).json({ error: 'Error retrieving builds!' });
   }
