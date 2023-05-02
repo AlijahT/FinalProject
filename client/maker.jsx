@@ -10,14 +10,14 @@ const handleBuild = (e) => {
     const cost = e.target.querySelector('#cost').value;
     const barrel = e.target.querySelector('#barrel').value;
     const spring = e.target.querySelector('#spring').value;
-    const additional = e.target.querySelector('#additional')
+    const additional = e.target.querySelector('#additional').value;
 
     if (!buildName || !cost || !barrel || !spring || !additional) {
         helper.handleError('All fields are required!');
         return false;
     }
 
-    helper.sendPost(e.target.action, { buildName, cost, barrel, spring, additional }, loadBuildsFromServer);
+    helper.sendPost(e.target.action, { buildName, cost, barrel, spring, additional}, loadBuildsFromServer);
 
     return false;
 }

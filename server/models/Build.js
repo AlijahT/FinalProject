@@ -44,9 +44,9 @@ const BuildSchema = new mongoose.Schema({
 BuildSchema.statics.toAPI = (doc) => ({
     buildName: doc.buildName,
     cost: doc.cost,
-    spring: doc.spring.value,
-    barrel: doc.barrel.value,
-    additional: doc.additional.value,
+    spring: doc.spring,
+    barrel: doc.barrel,
+    additional: doc.additional,
     nerfer: doc.nerfer,
 });
 
