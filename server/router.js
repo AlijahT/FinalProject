@@ -2,7 +2,7 @@ const controllers = require('./controllers');
 const mid = require('./middleware');
 
 const router = (app) => {
-  app.get('/getBlasters', mid.requiresLogin, controllers.Build.getBuilds);
+  app.get('/getBuilds', mid.requiresLogin, controllers.Build.getBuilds);
 
   app.get('/login', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
   app.post('/login', mid.requiresSecure, mid.requiresLogout, controllers.Account.login);
