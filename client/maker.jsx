@@ -45,7 +45,7 @@ const BuildForm = (props) => {
             <input id="fps" type="number" name="fps" min="0" />
 
             <label htmlFor="blaster">Blaster: </label>
-            <select name="blaster" id="blaster" onChange={PopulateDropdowns}>
+            <select name="blaster" id="blaster">
                 <option value={data.blasters[0].blastername}>{data.blasters[0].blasterbrand + " " + data.blasters[0].blastername}</option>
                 <option value={data.blasters[1].blastername}>{data.blasters[1].blasterbrand + " " + data.blasters[1].blastername}</option>
                 <option value={data.blasters[2].blastername}>{data.blasters[2].blasterbrand + " " + data.blasters[2].blastername}</option>
