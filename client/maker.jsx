@@ -9,18 +9,18 @@ const handleBuild = (e) => {
 
     const buildName = e.target.querySelector('#buildName').value;
     const cost = e.target.querySelector('#cost').value;
-    const fps = e.target.querySelector('#fp').value;
+    const fps = e.target.querySelector('#fps').value;
     const blaster = e.target.querySelector('#blaster').value;
     const barrel = e.target.querySelector('#barrel').value;
     const spring = e.target.querySelector('#spring').value;
     const additional = e.target.querySelector('#additional').value;
 
-    if (!buildName || !cost || !blaster || !barrel || !spring || !additional) {
+    if (!buildName || !cost || !fps || !blaster || !barrel || !spring || !additional) {
         helper.handleError('All fields are required!');
         return false;
     }
 
-    helper.sendPost(e.target.action, { buildName, cost, blaster, barrel, spring, additional }, loadBuildsFromServer);
+    helper.sendPost(e.target.action, { buildName, cost, fps, blaster, barrel, spring, additional }, loadBuildsFromServer);
 
     return false;
 }
@@ -43,12 +43,36 @@ const BuildForm = (props) => {
 
             <label htmlFor="fps">FPS: </label>
             <input id="fps" type="number" name="fps" min="0" />
-        
+
             <label htmlFor="blaster">Blaster: </label>
             <select name="blaster" id="blaster" onChange={PopulateDropdowns}>
-                <option value={'"'+ data.blasters[0].blastername+'"'}>{data.blasters[0].blastername}</option>
-                <option value={'"'+ data.blasters[1].blastername+'"'}>{data.blasters[1].blastername}</option>
-                <option value={'"'+ data.blasters[2].blastername+'"'}>{data.blasters[2].blastername}</option>
+                <option value={'"' + data.blasters[0].blastername + '"'}>{data.blasters[0].blastername}</option>
+                <option value={'"' + data.blasters[1].blastername + '"'}>{data.blasters[1].blastername}</option>
+                <option value={'"' + data.blasters[2].blastername + '"'}>{data.blasters[2].blastername}</option>
+            </select>
+
+            <label htmlFor="barrel">Barrel: </label>
+            <select name="barrel" id="barrel">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+            <label htmlFor="spring">Spring: </label>
+            <select name="spring" id="spring">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+            <label htmlFor="additional">Additional: </label>
+            <select name="additional" id="additional">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
             </select>
 
             <input className="makeBuildSubmit" type="submit" value="Create Build" />
@@ -56,34 +80,8 @@ const BuildForm = (props) => {
     );
 };
 
-const PopulateDropdowns = (blaster) =>{
+const PopulateDropdowns = (blaster) => {
 
-
-
-
-    // <label htmlFor="barrel">Barrel: </label>
-    //         <select name="barrel" id="barrel">
-    //             <option value="1">1</option>
-    //             <option value="2">2</option>
-    //             <option value="3">3</option>
-    //             <option value="4">4</option>
-    //         </select>
-
-    //         <label htmlFor="spring">Spring: </label>
-    //         <select name="spring" id="spring">
-    //             <option value="1">1</option>
-    //             <option value="2">2</option>
-    //             <option value="3">3</option>
-    //             <option value="4">4</option>
-    //         </select>
-
-    //         <label htmlFor="additional">Additional: </label>
-    //         <select name="additional" id="additional">
-    //             <option value="1">1</option>
-    //             <option value="2">2</option>
-    //             <option value="3">3</option>
-    //             <option value="4">4</option>
-    //         </select>
 };
 
 const BuildList = (props) => {
@@ -119,12 +117,12 @@ const BuildList = (props) => {
 const loadBuildsFromServer = async () => {
     const response = await fetch('/getBuilds');
     const data = await response.json();
-    ReactDOM.render(<BuildList builds = {data.builds} />, document.getElementById('builds'));
+    ReactDOM.render(<BuildList builds={data.builds} />, document.getElementById('builds'));
 };
 
 const init = () => {
     ReactDOM.render(<BuildForm />, document.getElementById('makeBuild'));
-    ReactDOM.render(<BuildList builds = {[]} />, document.getElementById('builds'))
+    ReactDOM.render(<BuildList builds={[]} />, document.getElementById('builds'))
     loadBuildsFromServer();
 }
 

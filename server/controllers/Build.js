@@ -5,8 +5,8 @@ const { Build } = models;
 const makerPage = async (req, res) => res.render('app');
 
 const makeBuild = async (req, res) => {
-  if (!req.body.buildName || !req.body.cost || !req.body.fps || !req.body.blaster || !req.body.spring
-    || !req.body.barrel || !req.body.additional) {
+  if (!req.body.buildName || !req.body.cost || !req.body.fps || !req.body.blaster 
+    || !req.body.spring || !req.body.barrel || !req.body.additional) {
     return res.status(400).json({ error: 'All Fields Are Required!' });
   }
 
