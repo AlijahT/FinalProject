@@ -4,6 +4,8 @@ const { Build } = models;
 
 const makerPage = async (req, res) => res.render('app');
 
+const notFound =  async (req, res) => res.render('notFound');
+
 const makeBuild = async (req, res) => {
   if (!req.body.buildName || !req.body.cost || !req.body.fps || !req.body.blaster 
     || !req.body.spring || !req.body.barrelid || !req.body.barrellength) {
@@ -45,7 +47,7 @@ const makeBuild = async (req, res) => {
 const getBuilds = async (req, res) => {
   try {
     const query = { nerfer: req.session.account._id };
-    const docs = await Build.find(query).select('buildName cost fps blaster spring barrel additional')
+    const docs = await Build.find(query).select('buildName cost fps blaster spring barrelid barrellength additional')
     .lean().exec();
     return res.json({ builds: docs });
   } 
@@ -59,4 +61,5 @@ module.exports = {
   makerPage,
   makeBuild,
   getBuilds,
+  notFound
 };

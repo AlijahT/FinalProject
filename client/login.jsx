@@ -61,7 +61,7 @@ const LoginWindow = (props) => {
                         <input id='pass' type='password' name='pass' class="input" placeholder='password' />
                         <br />
                         <br />
-                        <input className='formSubmit' class = "button is-primary" type='submit' value='Sign in' />
+                        <input className='formSubmit' class = "button is-primary has-text-black" type='submit' value='Sign in' />
 
                     </div>
                 </div>
@@ -89,7 +89,8 @@ const SignupWindow = (props) => {
                         <label htmlFor='pass'>Retype Password: </label>
                         <input id='pass2' type='password' name='pass2' class="input" placeholder='retype password' />
                         <br />
-                        <input className='formSubmit' class="button" type='submit' value='Sign Up' />
+                        <br />
+                        <input className='formSubmit' class="button is-primary has-text-black" type='submit' value='Sign Up' />
                     </div>
                 </div>
             </div>
