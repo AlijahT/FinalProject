@@ -17,7 +17,7 @@ const handleBuild = (e) => {
         return false;
     }
 
-    helper.sendPost(e.target.action, { buildName, cost, barrel, spring, additional }, loadBuildssFromServer);
+    helper.sendPost(e.target.action, { buildName, cost, barrel, spring, additional }, loadBuildsFromServer);
 
     return false;
 }
