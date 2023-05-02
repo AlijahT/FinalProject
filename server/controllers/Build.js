@@ -5,7 +5,7 @@ const { Build } = models;
 const makerPage = async (req, res) => res.render('app');
 
 const makeBuild = async (req, res) => {
-  if (!req.body.buildName || !req.body.cost || !req.body.blaster || !req.body.spring
+  if (!req.body.buildName || !req.body.cost || !req.body.fps || !req.body.blaster || !req.body.spring
     || !req.body.barrel || !req.body.additional) {
     return res.status(400).json({ error: 'All Fields Are Required!' });
   }
@@ -13,6 +13,7 @@ const makeBuild = async (req, res) => {
   const buildData = {
     buildName: req.body.buildName,
     cost: req.body.cost,
+    fps: req.body.fps,
     blaster: req.body.blaster,
     spring: req.body.spring,
     barrel: req.body.barrel,
@@ -26,6 +27,7 @@ const makeBuild = async (req, res) => {
     return res.status(201).json({
       buildName: newBuild.buildName,
       cost: newBuild.cost,
+      fps: newBuild.fps,
       blaster: newBuild.blaster,
       spring: newBuild.spring,
       barrel: newBuild.barrel,
@@ -43,7 +45,7 @@ const makeBuild = async (req, res) => {
 const getBuilds = async (req, res) => {
   try {
     const query = { nerfer: req.session.account._id };
-    const docs = await Build.find(query).select('buildName cost blaster spring barrel additional')
+    const docs = await Build.find(query).select('buildName cost fps blaster spring barrel additional')
     .lean().exec();
     return res.json({ builds: docs });
   } 

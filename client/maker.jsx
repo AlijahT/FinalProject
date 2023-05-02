@@ -9,6 +9,7 @@ const handleBuild = (e) => {
 
     const buildName = e.target.querySelector('#buildName').value;
     const cost = e.target.querySelector('#cost').value;
+    const fps = e.target.querySelector('#fp').value;
     const blaster = e.target.querySelector('#blaster').value;
     const barrel = e.target.querySelector('#barrel').value;
     const spring = e.target.querySelector('#spring').value;
@@ -25,6 +26,7 @@ const handleBuild = (e) => {
 }
 
 const BuildForm = (props) => {
+
     return (
         <form id="buildForm"
             onSubmit={handleBuild}
@@ -39,41 +41,49 @@ const BuildForm = (props) => {
             <label htmlFor="cost">Cost: </label>
             <input id="cost" type="number" name="cost" min="0" />
 
+            <label htmlFor="fps">FPS: </label>
+            <input id="fps" type="number" name="fps" min="0" />
+        
             <label htmlFor="blaster">Blaster: </label>
-            <select name="blaster" id="blaster">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-
-            <label htmlFor="barrel">Barrel: </label>
-            <select name="barrel" id="barrel">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-
-            <label htmlFor="spring">Spring: </label>
-            <select name="spring" id="spring">
-                <option value="1">{data.blasters[0].blastername}</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-
-            <label htmlFor="additional">Additional: </label>
-            <select name="additional" id="additional">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+            <select name="blaster" id="blaster" onChange={PopulateDropdowns}>
+                <option value={'"'+ data.blaster[0].blastername+'"'}>{data.blaster[0].blastername}</option>
+                <option value={'"'+ data.blaster[1].blastername+'"'}>{data.blaster[1].blastername}</option>
+                <option value={'"'+ data.blaster[2].blastername+'"'}>{data.blaster[2].blastername}</option>
             </select>
 
             <input className="makeBuildSubmit" type="submit" value="Create Build" />
         </form>
     );
+};
+
+const PopulateDropdowns = (blaster) =>{
+
+
+
+
+    // <label htmlFor="barrel">Barrel: </label>
+    //         <select name="barrel" id="barrel">
+    //             <option value="1">1</option>
+    //             <option value="2">2</option>
+    //             <option value="3">3</option>
+    //             <option value="4">4</option>
+    //         </select>
+
+    //         <label htmlFor="spring">Spring: </label>
+    //         <select name="spring" id="spring">
+    //             <option value="1">1</option>
+    //             <option value="2">2</option>
+    //             <option value="3">3</option>
+    //             <option value="4">4</option>
+    //         </select>
+
+    //         <label htmlFor="additional">Additional: </label>
+    //         <select name="additional" id="additional">
+    //             <option value="1">1</option>
+    //             <option value="2">2</option>
+    //             <option value="3">3</option>
+    //             <option value="4">4</option>
+    //         </select>
 };
 
 const BuildList = (props) => {

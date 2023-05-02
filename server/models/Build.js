@@ -15,6 +15,11 @@ const BuildSchema = new mongoose.Schema({
         min: 0,
         required: true,
     },
+    fps: {
+        type: Number,
+        min: 0,
+        required: true,
+    },
     blaster: {
         type: String,
         required: true,
@@ -49,6 +54,7 @@ const BuildSchema = new mongoose.Schema({
 BuildSchema.statics.toAPI = (doc) => ({
     buildName: doc.buildName,
     cost: doc.cost,
+    fps: doc.fps,
     blaster: doc.blaster, 
     spring: doc.spring,
     barrel: doc.barrel,
