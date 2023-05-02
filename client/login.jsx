@@ -51,11 +51,19 @@ const LoginWindow = (props) => {
             method='POST'
             className='mainForm'
         >
-            <label htmlFor='username'>Username: </label>
-            <input id='user' type='text' name='username' placeholder='username' />
-            <label htmlFor='pass'>Password: </label>
-            <input id='pass' type='password' name='pass' placeholder='password' />
-            <input className='formSubmit' type='submit' value='Sign in' />
+
+            <div class="columns is-mobile is-1">
+                <div class="column is-half is-offset-one-quarter">
+                    <div id="Login Box" class="box has-background-dark has-text-light">
+                        <label htmlFor='username'>Username: </label>
+                        <input id='user' type='text' name='username' class="input" placeholder='username' />
+                        <label htmlFor='pass'>Password: </label>
+                        <input id='pass' type='password' name='pass' class="input" placeholder='password' />
+                        <input className='formSubmit' type='submit' value='Sign in' />
+
+                    </div>
+                </div>
+            </div>
         </form>
     );
 };
@@ -69,8 +77,8 @@ const SignupWindow = (props) => {
             method='POST'
             className='mainForm'
         >
-            <div class="columns">
-                <div class="column is-half is-offset-one-quarter is-mobile is-1">
+            <div class="columns is-mobile is-1">
+                <div class="column is-half is-offset-one-quarter">
                     <div id="Login Box" class="box has-background-dark has-text-light">
                         <label htmlFor='username'>Username: </label>
                         <input id='user' type='text' name='username' class="input" placeholder='username' />
