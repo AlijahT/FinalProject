@@ -32,13 +32,13 @@ const BuildSchema = new mongoose.Schema({
     },
     barrelid: {
         type: Number,
+        min: 0,
         required: true,
-        trim: true,
     },
     barrellength: {
         type: Number,
+        min: 0,
         required: true,
-        trim: true,
     },
     nerfer: {
         type: mongoose.Schema.ObjectId,

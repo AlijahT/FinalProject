@@ -22,7 +22,7 @@ const sendPost = async (url, data, handler) => {
     });
 
     const result = await response.json();
-    document.getElementById('domoMessage');
+    //document.getElementById('domoMessage');
 
     if (result.redirect) {
         window.location = result.redirect;
