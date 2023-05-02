@@ -57,8 +57,7 @@ const BuildForm = (props) => {
 };
 
 const PopulateDropdowns = (e) => {
-
-
+    const blaster = e.target.querySelector('#blaster').value;
     switch (blaster) {
         case "Talon Claw T4":
             return (
@@ -190,49 +189,49 @@ const PopulateDropdowns = (e) => {
     };
 
 
-};
+    };
 
-const BuildList = (props) => {
-    if (props.builds.length === 0) {
+    const BuildList = (props) => {
+        if (props.builds.length === 0) {
+            return (
+                <div className="buildList">
+                    <h3 className="emptyBuilds">No Builds Created yet</h3>
+                </div>
+            );
+        }
+
+        const buildNodes = props.builds.map(build => {
+            return (
+                <div key={build._id} className="build">
+                    <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace" />
+                    <h3 className="buildName">Build Name: {build.buildName}</h3>
+                    <h3 className="cost">Cost: {build.cost}</h3>
+                    <h3 className="fps">FPS: {build.fps}</h3>
+                    <h3 className="blaster">Blaster: {build.blaster}</h3>
+                    <h3 className="barrel">Barrel: {build.barrel}</h3>
+                    <h3 className="spring">Spring: {build.spring}</h3>
+                    <h3 className="additional">Additional: {build.additional}</h3>
+                </div>
+            );
+        });
+
         return (
             <div className="buildList">
-                <h3 className="emptyBuilds">No Builds Created yet</h3>
+                {buildNodes}
             </div>
         );
+    };
+
+    const loadBuildsFromServer = async () => {
+        const response = await fetch('/getBuilds');
+        const data = await response.json();
+        ReactDOM.render(<BuildList builds={data.builds} />, document.getElementById('builds'));
+    };
+
+    const init = () => {
+        ReactDOM.render(<BuildForm />, document.getElementById('makeBuild'));
+        ReactDOM.render(<BuildList builds={[]} />, document.getElementById('builds'))
+        loadBuildsFromServer();
     }
 
-    const buildNodes = props.builds.map(build => {
-        return (
-            <div key={build._id} className="build">
-                <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace" />
-                <h3 className="buildName">Build Name: {build.buildName}</h3>
-                <h3 className="cost">Cost: {build.cost}</h3>
-                <h3 className="fps">FPS: {build.fps}</h3>
-                <h3 className="blaster">Blaster: {build.blaster}</h3>
-                <h3 className="barrel">Barrel: {build.barrel}</h3>
-                <h3 className="spring">Spring: {build.spring}</h3>
-                <h3 className="additional">Additional: {build.additional}</h3>
-            </div>
-        );
-    });
-
-    return (
-        <div className="buildList">
-            {buildNodes}
-        </div>
-    );
-};
-
-const loadBuildsFromServer = async () => {
-    const response = await fetch('/getBuilds');
-    const data = await response.json();
-    ReactDOM.render(<BuildList builds={data.builds} />, document.getElementById('builds'));
-};
-
-const init = () => {
-    ReactDOM.render(<BuildForm />, document.getElementById('makeBuild'));
-    ReactDOM.render(<BuildList builds={[]} />, document.getElementById('builds'))
-    loadBuildsFromServer();
-}
-
-window.onload = init;
+    window.onload = init;
