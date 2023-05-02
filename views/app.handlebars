@@ -8,6 +8,7 @@
 <body>
   <nav><a href="/login"><img id="logo" src="/assets/img/face.png" alt="face logo"/></a>
     <div class="navlink"><a href="/logout">Log out</a></div>
+    <div class="navlink" align="right"><a href="#" id="changePasswordLink">Change Password</a></div>
   </nav>
 
   <section id="makeBuild">
@@ -22,6 +23,43 @@
     <h3><span id="errorMessage"></span></h3>
     <img id="domo" src="assets/img/domo.png" alt="domo"/>
   </div>
+
+    <div id="changePasswordModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Change Password</h2>
+      <form id="changePasswordForm">
+        <label for="current">Current Password:</label>
+        <label for="pass1">New Password:</label>
+        <label for="pass2">Confirm New Password:</label>
+        <input type="password" id="current" name="current">
+        <input type="password" id="pass1" name="pass1">
+        <input type="password" id="pass2" name="pass2">        
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+
   <script src="/assets/appBundle.js"></script>
+  <script>
+    const changePasswordLink = document.getElementById("changePasswordLink");
+    const changePasswordModal = document.getElementById("changePasswordModal");
+    const closeChangePasswordModal = changePasswordModal.querySelector(".close");
+    const changePasswordForm = document.getElementById("changePasswordForm");
+
+    changePasswordLink.addEventListener("click", function() {
+      changePasswordModal.classList.remove("hidden");
+    });
+
+    closeChangePasswordModal.addEventListener("click", function() {
+      changePasswordModal.classList.add("hidden");
+    });
+
+    changePasswordForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+    });
+  </script>
+
 </body>
 </html>

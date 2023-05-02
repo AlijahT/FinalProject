@@ -67,7 +67,7 @@ const BuildForm = (props) => {
 };
 
 const BuildList = (props) => {
-    if (props.builds.length() === 0) {
+    if (props.builds.length === 0) {
         return (
             <div className="buildList">
                 <h3 className="emptyBuilds">No Builds Created yet</h3>
@@ -103,7 +103,7 @@ const loadBuildsFromServer = async () => {
 
 const init = () => {
     ReactDOM.render(<BuildForm />, document.getElementById('makeBuild'));
-    ReactDOM.render(<BuildList builds={[]} />, document.getElementById('builds'))
+    ReactDOM.render(<BuildList builds = {[]} />, document.getElementById('builds'))
     loadBuildsFromServer();
 }
 
