@@ -4,7 +4,7 @@
 */
 const handleError = (message) => {
     document.getElementById('errorMessage').textContent = message;
-    document.getElementById('domoMessage');
+    //document.getElementById('domoMessage');
 };
 
 /* Sends post requests to the server using fetch. Will look for various
@@ -36,7 +36,7 @@ const sendPost = async (url, data, handler) => {
 };
 
 const hideError = () => {
-    document.getElementById('domoMessage').classList.add('hidden');
+    //document.getElementById('domoMessage');
 };
 
 module.exports = {
