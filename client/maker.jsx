@@ -85,8 +85,7 @@ const BuildList = (props) => {
                 <h3 className="blaster">Blaster: {build.blaster}</h3>
                 <h3 className="spring">Spring Weight: {build.spring} Kg</h3>
                 <h3 className="barrelid">Barrel Inner-Diameter: {build.barrelid} mm</h3>
-                <h3 className="barrellength">Barrel Length: {build.barrellength} cm</h3>
-                
+                <h3 className="barrellength">Barrel Length: {build.barrellength} cm</h3> 
             </div>
         );
     });
