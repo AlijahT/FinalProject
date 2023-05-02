@@ -12,7 +12,7 @@ const handleBuild = (e) => {
     const spring = e.target.querySelector('#spring').value;
     const additional = e.target.querySelector('#additional').value;
 
-    if (!buildName || !cost) {
+    if (!buildName || !cost || !barrel || !spring || !additional) {
         helper.handleError('All fields are required!');
         return false;
     }
@@ -35,7 +35,7 @@ const BuildForm = (props) => {
             <input id="buildName" type="text" name="buildName" placeholder="Enter Name for Build" />
 
             <label htmlFor="cost">Cost: </label>
-            <input id="cost" type="number" name="age" min="0" />
+            <input id="cost" type="number" name="cost" min="0" />
 
             <label htmlFor="barrel">Barrel: </label>
             <select name="barrel" id="barrel">
