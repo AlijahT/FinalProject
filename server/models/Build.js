@@ -26,17 +26,17 @@ const BuildSchema = new mongoose.Schema({
         trim: true,
     },
     spring: {
-        type: String,
+        type: Number,
         required: true,
         trim: true,
     },
-    barrel: {
-        type: String,
+    barrelid: {
+        type: Number,
         required: true,
         trim: true,
     },
-    additional: {
-        type: String,
+    barrellength: {
+        type: Number,
         required: true,
         trim: true,
     },
@@ -57,8 +57,8 @@ BuildSchema.statics.toAPI = (doc) => ({
     fps: doc.fps,
     blaster: doc.blaster, 
     spring: doc.spring,
-    barrel: doc.barrel,
-    additional: doc.additional,
+    barrelid: doc.barrelid,
+    barrellength: doc.barrellength,
     nerfer: doc.nerfer,
 });
 

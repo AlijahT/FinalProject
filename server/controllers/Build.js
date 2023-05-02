@@ -6,7 +6,7 @@ const makerPage = async (req, res) => res.render('app');
 
 const makeBuild = async (req, res) => {
   if (!req.body.buildName || !req.body.cost || !req.body.fps || !req.body.blaster 
-    || !req.body.spring || !req.body.barrel || !req.body.additional) {
+    || !req.body.spring || !req.body.barrelid || !req.body.barrellength) {
     return res.status(400).json({ error: 'All Fields Are Required!' });
   }
 
@@ -16,8 +16,8 @@ const makeBuild = async (req, res) => {
     fps: req.body.fps,
     blaster: req.body.blaster,
     spring: req.body.spring,
-    barrel: req.body.barrel,
-    additional: req.body.additional,
+    barrelid: req.body.barrelid,
+    barrellength: req.body.barrellength,
     nerfer: req.session.account._id,
   };
 
@@ -30,8 +30,8 @@ const makeBuild = async (req, res) => {
       fps: newBuild.fps,
       blaster: newBuild.blaster,
       spring: newBuild.spring,
-      barrel: newBuild.barrel,
-      additional: newBuild.additional,
+      barrelid: newBuild.barrelid,
+      barrellength: newBuild.barrellength,
     });
   } catch (err) {
     console.log(err);
