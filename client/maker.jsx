@@ -200,8 +200,7 @@ const ModalButton = (props) => {
 }
 
 const renderModal = async () => {
-    const root = ReactDOM.createRoot(document.getElementById('changePassword'));
-    root.render(<ModalControl />);
+    ReactDOM.render(<ModalControl />, document.getElementById('changePassword'));
 
 }
 
