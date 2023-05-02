@@ -20,7 +20,7 @@ const handleBuild = (e) => {
         return false;
     }
 
-    helper.sendPost(e.target.action, { buildName, cost, fps, blaster, barrel, spring, additional }, loadBuildsFromServer);
+    helper.sendPost(e.target.action, { buildName, cost, fps, blaster, spring, barrelid, barrellength }, loadBuildsFromServer);
 
     return false;
 }
