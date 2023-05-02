@@ -77,7 +77,7 @@ const BuildList = (props) => {
 
     const buildNodes = props.builds.map(build => {
         return (
-            <div key={build._id} className="build">
+            <div key={build._id} className="build" class = "box">
                 <img src="/assets/img/mav.png" alt="best blaster ever" className="maverick" width="48px" />
                 <h3 className="buildName">Build Name: {build.buildName}</h3>
                 <h3 className="cost">Cost: {build.cost} USD</h3>
