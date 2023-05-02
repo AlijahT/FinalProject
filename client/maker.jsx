@@ -37,23 +37,23 @@ const BuildForm = (props) => {
         >
             <label htmlFor="buildName">Build Name: </label>
             <input id="buildName" type="text" name="buildName" placeholder="Enter Name for Build" />
-
+            {'\n'} 
             <label htmlFor="cost">Cost in USD: </label>
             <input id="cost" type="number" name="cost" min="0" />
-
+            {'\n'} 
             <label htmlFor="fps">FPS: </label>
             <input id="fps" type="number" name="fps" min="0" />
-
+            {'\n'} 
             <label htmlFor="blaster">Blaster: </label>
             <select name="blaster" id="blaster">
                 <option value={data.blasters[0].blastername}>{data.blasters[0].blasterbrand + " " + data.blasters[0].blastername}</option>
                 <option value={data.blasters[1].blastername}>{data.blasters[1].blasterbrand + " " + data.blasters[1].blastername}</option>
                 <option value={data.blasters[2].blastername}>{data.blasters[2].blasterbrand + " " + data.blasters[2].blastername}</option>
             </select>
-
+            {'\n'} 
             <label htmlFor="spring">Spring Weight in Kg: </label>
             <input id="spring" type="number" name="spring" min="0" />
-
+            {'\n'} 
             <label htmlFor="barrelid">Barrel Inner-Diameter in mm: </label>
             <input id="barrelid" type="number" name="barrelid" min="0" />
 
