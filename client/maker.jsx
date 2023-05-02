@@ -8,16 +8,17 @@ const handleBuild = (e) => {
 
     const buildName = e.target.querySelector('#buildName').value;
     const cost = e.target.querySelector('#cost').value;
+    const blaster = e.target.querySelector('#blaster').value;
     const barrel = e.target.querySelector('#barrel').value;
     const spring = e.target.querySelector('#spring').value;
     const additional = e.target.querySelector('#additional').value;
 
-    if (!buildName || !cost || !barrel || !spring || !additional) {
+    if (!buildName || !cost || !blaster || !barrel || !spring || !additional) {
         helper.handleError('All fields are required!');
         return false;
     }
 
-    helper.sendPost(e.target.action, { buildName, cost, barrel, spring, additional }, loadBuildsFromServer);
+    helper.sendPost(e.target.action, { buildName, cost, blaster, barrel, spring, additional }, loadBuildsFromServer);
 
     return false;
 }
@@ -37,6 +38,14 @@ const BuildForm = (props) => {
             <label htmlFor="cost">Cost: </label>
             <input id="cost" type="number" name="cost" min="0" />
 
+            <label htmlFor="blaster">Blaster: </label>
+            <select name="blaster" id="blaster">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
             <label htmlFor="barrel">Barrel: </label>
             <select name="barrel" id="barrel">
                 <option value="1">1</option>
@@ -45,7 +54,7 @@ const BuildForm = (props) => {
                 <option value="4">4</option>
             </select>
 
-            <label htmlFor="spring">Barrel: </label>
+            <label htmlFor="spring">Spring: </label>
             <select name="spring" id="spring">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -53,7 +62,7 @@ const BuildForm = (props) => {
                 <option value="4">4</option>
             </select>
 
-            <label htmlFor="additional">Barrel: </label>
+            <label htmlFor="additional">Additional: </label>
             <select name="additional" id="additional">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -81,6 +90,7 @@ const BuildList = (props) => {
                 <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace" />
                 <h3 className="buildName">Build Name: {build.buildName}</h3>
                 <h3 className="cost">Cost: {build.cost}</h3>
+                <h3 className="blaster">Blaster: {build.blaster}</h3>
                 <h3 className="barrel">Barrel: {build.barrel}</h3>
                 <h3 className="spring">Spring: {build.spring}</h3>
                 <h3 className="additional">Additional: {build.additional}</h3>

@@ -42,24 +42,6 @@
   </div>
 
   <script src="/assets/appBundle.js"></script>
-  <script>
-    const changePasswordLink = document.getElementById("changePasswordLink");
-    const changePasswordModal = document.getElementById("changePasswordModal");
-    const closeChangePasswordModal = changePasswordModal.querySelector(".close");
-    const changePasswordForm = document.getElementById("changePasswordForm");
-
-    changePasswordLink.addEventListener("click", function() {
-      changePasswordModal.classList.remove("hidden");
-    });
-
-    closeChangePasswordModal.addEventListener("click", function() {
-      changePasswordModal.classList.add("hidden");
-    });
-
-    changePasswordForm.addEventListener("submit", function(event) {
-      event.preventDefault();
-    });
-  </script>
 
 </body>
 </html>
