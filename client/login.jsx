@@ -61,7 +61,7 @@ const LoginWindow = (props) => {
                         <input id='pass' type='password' name='pass' class="input" placeholder='password' />
                         <br />
                         <br />
-                        <input className='formSubmit' class = "button" type='submit' value='Sign in' />
+                        <input className='formSubmit' class = "button is-primary" type='submit' value='Sign in' />
 
                     </div>
                 </div>

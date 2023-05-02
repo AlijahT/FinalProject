@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 const helper = require('./helper.js');
 const React = require('react');
 const ReactDOM = require('react-dom');
@@ -193,14 +194,15 @@ const Modal = (props) => {
 
 const ModalButton = (props) => {
     return (
-        <button onClick={props.onClick}>
-            {props.message}
-        </button>
+        <a class="button is-danger" onClick={props.onClick}>
+            <strong>{props.message}</strong>
+        </a>
     )
 }
 
 const renderModal = async () => {
-    ReactDOM.render(<ModalControl />, document.getElementById('changePassword'));
+    const root = ReactDOM.createRoot(document.getElementById('changePassword'));
+    root.render(<ModalControl />);
 
 }
 
