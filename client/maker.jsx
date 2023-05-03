@@ -176,17 +176,17 @@ const Modal = (props) => {
                                 Current Password:
                                 <input type="password" value={props.current} onChange={props.onChange} name="current" />
                             </label>
-                            <br></br>
+                            <br />
                             <label>
                                 New Password:
                                 <input type="password" value={props.pass1} onChange={props.onChange} name="pass1" />
                             </label>
-                            <br></br>
+                            <br />
                             <label>
                                 Confirm New Password:
                                 <input type="password" value={props.pass2} onChange={props.onChange} name="pass2" />
                             </label>
-                            <br></br>
+                            <br />
                             <input type="submit" value="Submit" />
                         </form>
                     </div>
