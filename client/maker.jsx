@@ -36,6 +36,7 @@ const BuildForm = (props) => {
             method="POST"
             className="buildForm"
         >
+            
             <label htmlFor="buildName">Build Name: </label>
             <input id="buildName" type="text" name="buildName" placeholder="Enter Name for Build" />
             <br />
@@ -100,6 +101,15 @@ const BuildList = (props) => {
     );
 };
 
+const Switch = (props) => {
+    return (
+        <label class="switch">
+          <input type="checkbox"></input>
+          <span class="slider round"></span>
+        </label>
+    )
+}
+
 class ModalControl extends React.Component {
     constructor(props) {
         super(props);
@@ -155,12 +165,12 @@ const Modal = (props) => {
     const showModal = props.showModal;
     if (showModal) {
         return (
-            <div className="modal">
-                <div className='modal-content'>
-                    <div className='modal-header'>
-                        <h4 className='modal-title'>Change Password</h4>
+            <div className="pass-modal">
+                <div className='pass-modal-content'>
+                    <div className='pass-modal-header'>
+                        <h4 className='pass-modal-title'>Change Password</h4>
                     </div>
-                    <div className='modal-body'>
+                    <div className='pass-modal-body'>
                         <form onSubmit={props.onSubmit}>
                             <label>
                                 Current Password:
@@ -180,7 +190,7 @@ const Modal = (props) => {
                             <input type="submit" value="Submit" />
                         </form>
                     </div>
-                    <div className='modal-footer'>
+                    <div className='pass-modal-footer'>
                         <button onClick={props.onClose}>
                             Close
                         </button>
@@ -201,9 +211,7 @@ const ModalButton = (props) => {
 }
 
 const renderModal = async () => {
-    const root = ReactDOM.createRoot(document.getElementById('changePassword'));
-    root.render(<ModalControl />);
-
+    ReactDOM.render(<ModalControl />, document.getElementById('changePassword'));
 }
 
 const loadBuildsFromServer = async () => {
