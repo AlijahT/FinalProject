@@ -116,7 +116,7 @@ class ModalControl extends React.Component {
         super(props);
         this.handleButtonClick = this.handleButtonClick.bind(this);
         this.closeModal = this.closeModal.bind(this);
-        this.state = { showModal: false, current: '', pass1: '', pass2: '' };
+        this.state = { showModal: false, pass: '' };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -136,10 +136,10 @@ class ModalControl extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('Changed: ' + this.state);
+        helper.sendPost('/changePassword', { password: this.state.value }, false);
+        alert('Successfully Changed Password');
         event.preventDefault();
     }
-
 
     render() {
         const showModal = this.state.showModal;

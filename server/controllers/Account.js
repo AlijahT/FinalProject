@@ -57,10 +57,24 @@ const signup = async (req, res) => {
   }
 };
 
+const changePassword = (req, res) => {
+  const { password } = req.body;
+  const { username } = req.session.account._id;
+  if (!password) {
+    return res.status(400).json({ error: 'Missing Password' });
+  }
+  return Account.changePassword(username, password, (err, account) => {
+    req.session.account = Account.toAPI(account);
+
+    return res.json({ redirect: '/maker' });
+  });
+};
+
 module.exports = {
   login,
   loginPage,
   signup,
   signupPage,
   logout,
+  changePassword
 };
