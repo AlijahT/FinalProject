@@ -11,10 +11,9 @@ const makeBuild = async (req, res) => {
     || !req.body.spring || !req.body.barrelid || !req.body.barrellength) {
     return res.status(400).json({ error: 'All Fields Are Required!' });
   }
-
   const query = { nerfer: req.session.account._id };
   const docs = await Build.find(query).exec();
-  let paid = req.body.subscribed
+  let paid = req.body.paid
   if (docs.length > 3 && !paid) {
     return res.status(400).json({ error: "You must subscribe to get more builds!" });
   }

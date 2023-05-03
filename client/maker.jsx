@@ -15,13 +15,14 @@ const handleBuild = (e) => {
     const spring = e.target.querySelector('#spring').value;
     const barrelid = e.target.querySelector('#barrelid').value;
     const barrellength = e.target.querySelector('#barrellength').value;
+    const paid = document.querySelector('#paid').checked;
 
     if (!buildName || !cost || !fps || !blaster || !spring || !barrelid || !barrellength) {
         helper.handleError('All fields are required!');
         return false;
     }
 
-    helper.sendPost(e.target.action, { buildName, cost, fps, blaster, spring, barrelid, barrellength }, loadBuildsFromServer);
+    helper.sendPost(e.target.action, { buildName, cost, fps, blaster, spring, barrelid, barrellength, paid }, loadBuildsFromServer);
 
     return false;
 }
@@ -36,7 +37,7 @@ const BuildForm = (props) => {
             method="POST"
             className="buildForm"
         >
-            
+            {createPortal(<Switch />, document.getElementById('switch'))}
             <label htmlFor="buildName">Build Name: </label>
             <input id="buildName" type="text" name="buildName" placeholder="Enter Name for Build" />
             <br />
@@ -104,7 +105,7 @@ const BuildList = (props) => {
 const Switch = (props) => {
     return (
         <label class="switch">
-          <input type="checkbox"></input>
+          <input id="paid" name="paid" type="checkbox"></input>
           <span class="slider round"></span>
         </label>
     )
